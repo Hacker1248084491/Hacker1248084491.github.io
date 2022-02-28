@@ -83,93 +83,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java SE学习笔记：第一个Java程序</title>
-    <url>/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<p>本文是Java SE学习笔记的第二篇文章，来分析一下一个简单Java程序的基本构成</p>
-<h2 id="编写第一个Java程序"><a href="#编写第一个Java程序" class="headerlink" title="编写第一个Java程序"></a>编写第一个Java程序</h2><p>打开文本编辑器，输入以下代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这就是一个最基本的Java程序，下面我们来分析下这部分代码</p>
-<span id="more"></span>
-<ul>
-<li>首先是第一行<code>public class Hello&#123;</code><ul>
-<li>这行代码的作用是定义一个类，类是Java代码的基本组成，所有的代码都要放在类中</li>
-<li><code>public</code>被称为访问修饰符，是用来控制其他代码对这段代码的访问权限，后续会详细讲解</li>
-<li><code>class</code>是关键字，是用来定义类的，Java所有的代码都是写在类中，后续会对类进行详细讲解</li>
-<li><code>Hello</code>是类名，紧跟在关键字<code>class</code>之后，首字母大写。类名的命名规则是以字母开头，后接字母、数字或下划线的组合（<strong>Java代码是大小写敏感的</strong>）</li>
-<li><code>&#123;</code>花括号，与代码最后面的<code>&#125;</code>是一组，表示类体，类体里包含这个类中所有的代码逻辑</li>
-</ul>
-</li>
-</ul>
-<p><strong>注意，一个文件中可以定义多个类，但是<code>public</code>修饰的类只能有一个，并且类名必须与文件名相同。这是Java规定的，目的是为了让JVM快速定位相关字节码文件的位置，节省时间和性能开销</strong>    </p>
-<ul>
-<li>然后是第二行<code>public static void main(String[] args)&#123;</code>     <ul>
-<li>这行代码的作用是定义一个方法，而且是主方法，关于方法后续会详细讲解，此处暂且不表</li>
-<li><code>public</code>已经讲过，此处不再赘述</li>
-<li><code>static</code>表示这个方法是静态的，后续会详细讲解，目前可以理解为是特定的格式</li>
-<li><code>void</code>表示这个方法是无返回值的，后续会详细讲解，目前可以理解为是特定的格式</li>
-<li><code>main</code>是方法名，命名规则和类名一致，命名规范为驼峰原则（首字母小写，若方法名由多个单词组成，后续单词首字母大写，比如helloWorld）  </li>
-<li><code>(String[] args)</code>为方法参数，紧跟在方法名之后，<code>()</code>必须存在，但括号内可以没有内容；<code>String[] args</code>为方法的形式参数，方法参数的数量没有限制，可以没有、有一个或多个<ul>
-<li><code>String[]</code>为参数类型，此处表示参数的类型是字符串数组</li>
-<li><code>args</code>是参数名，命名规范同样遵循驼峰原则</li>
-<li><code>&#123;</code>花括号，与代码倒数第二个<code>&#125;</code>是一组，表示方法体，方法体中包含本方法的全部代码逻辑</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>注意，main是主方法，是整个Java程序的入口，是一个特殊的方法，写法固定不变</strong>    </p>
-<ul>
-<li>最后是第三行<code>System.out.println(&quot;第一个程序&quot;);</code><ul>
-<li>这行代码的作用是在控制台上输出一行文字，需要输出的文字在括号内用<code>&quot;&quot;</code>括起来</li>
-<li>语句用<code>;</code>结尾，回车和换行并不是判断一个语句是否结束的标志</li>
-</ul>
-</li>
-</ul>
-<p><strong>注意，代码的缩进不是必须的，但是缩进后代码美观，结构也更加清晰</strong></p>
-<p>到此，一个最简单的Java程序我们就分析完了，现在我们将它保存到相关文件夹，文件名为<code>Hello.java</code></p>
-<h2 id="运行Java程序"><a href="#运行Java程序" class="headerlink" title="运行Java程序"></a>运行Java程序</h2><p>在文件保存的位置，打开命令提示符（Windows在文件的路径栏中输入<code>cmd</code>，然后按下回车），如下图所示  </p>
-<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6.png" alt="从路径栏打开命令行串口"></p>
-<p>打开后在命令提示行中输入<code>javac Hello.java</code>，<code>javac</code>就是java编译器，它的作用是将java源代码文件（.java）编译成字节码文件（.class）</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br></pre></td></tr></table></figure>
-<p>输入后按下回车</p>
-<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/javac%E6%B1%89%E5%AD%97%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF.png" alt="javac源代码文件"></p>
-<p>如图，会显示编码GBK的不可映射字符错误，出现这种问题的原因一般是代码中包含中文，这是因为我们使用<code>cmd</code>运行java代码的时候，系统默认使用的是GBK编码格式，而含有中文代码的格式一般为UTF-8格式，所以直接运行会产生这个错误。<br>正确的办法是使用<code>javac -encoding utf-8 Hello.java</code>命令来编译代码</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">javac -encoding utf-<span class="number">8</span> Hello.java</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/javac%E7%BC%96%E7%A0%81%E7%BC%96%E8%AF%91.png" alt="javac编码编译"></p>
-<p>如图，编译后若没有出现任何提示，则编译成功，此时源代码所在目录下应该出现了同名的class文件</p>
-<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" alt="javac编码编译"></p>
-<p>到此，我们便成功编译了源文件，此时我们在命令行中输入<code>java Hello</code></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">java Hello</span><br></pre></td></tr></table></figure>
-<p>然后回车</p>
-<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E8%BF%90%E8%A1%8C%E5%AD%97%E8%8A%82%E7%A0%81.png" alt="运行字节码"></p>
-<p>命令行上显示出了我们在代码中编写的汉字，到此，Java程序运行成功！    </p>
-<p><strong>注意，<code>java</code>指令就是启动Java虚拟机，接收参数是<code>.class</code>文件，所以参数只传文件名而不需传入文件类型，所以是<code>java Hello</code>而不是<code>java Hello.class</code></strong></p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>在程序中，注释是给开发者以提示的文字信息，不会参与到程序的运行当中，编译器会自动忽略注释<br>在Java中，注释分为三种：单行注释、多行注释和文档注释</p>
-<ul>
-<li>单行注释：使用<code>//</code>，后接注释的文字。这种注释只能单行使用</li>
-<li>多行注释：使用<code>/**/</code>将要注释的文字括起来，<code>/*</code>和<code>*/</code>之间的文字都是注释的内容</li>
-<li>文档注释：使用<code>/***/</code>，一般用于描述该文件的信息，可配合javadoc命令生成说明文档<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Hello</span></span><br><span class="line"><span class="comment"> * 我是文档注释</span></span><br><span class="line"><span class="comment"> * 时间：2021/7/26</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);<span class="comment">//我是单行注释</span></span><br><span class="line">        System.out.println(<span class="string">&quot;第二个程序&quot;</span>)<span class="comment">/*我是多行注释</span></span><br><span class="line"><span class="comment">         System.out.println(&quot;第三个程序&quot;);*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>注意，多行注释和文档注释均不可多层嵌套，java编译器会自动检测首个注释的结尾</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);<span class="comment">//我是单行注释</span></span><br><span class="line">        System.out.println(<span class="string">&quot;第二个程序&quot;</span>)<span class="comment">/*我是多行注释</span></span><br><span class="line"><span class="comment">         System.out.println(&quot;第三个程序&quot;);*/</span></span><br><span class="line">         System.out.println(<span class="string">&quot;第四个程序&quot;</span>);*/</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的代码中，因为使用了多行注释多层嵌套，编译器默认注释的结尾是第三个程序后面的<code>*/</code>而不是第四个程序后面的<code>*/</code></p>
-<h2 id="IDE工具"><a href="#IDE工具" class="headerlink" title="IDE工具"></a>IDE工具</h2><p>到目前为止我们使用的开发工具是文档编辑器，编写完代码后需要我们手动编译和运行，十分不便。而在日常开发中，我们会使用更加强大的IDE开发环境，目前主流的Java开发IDE大致有以下几种：</p>
-<ul>
-<li>Eclipse：非常经典的Java开发软件，绝大多数开发者的入门首选，而且免费，下载<a href="https://www.eclipse.org/downloads/">点击这里</a></li>
-<li>Intellij IDEA：JetBrains公司研发的强大开发环境，拥有着极为强大的功能，逐渐占据Java开发的主流市场，分为社区版和旗舰版，社区版免费，旗舰版收费，下载<a href="https://www.jetbrains.com/idea/download/#section=windows">点击这里</a></li>
-<li>VSCode：微软开发的微型文档编辑器，轻量便捷，支持安装各种扩展插件，对Java有着不错的支持，但是作为企业开发还是和上述两者差距较大，下载<a href="https://code.visualstudio.com/">点击这里</a></li>
-</ul>
-<p>到这里，本文也接近了尾声，下一篇文章我们来讲一讲Java的变量和数据类型，我们下一篇文章见！</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>入门</tag>
-        <tag>Java SE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java SE学习笔记：Java简介</title>
     <url>/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p>本文是Java SE学习笔记的第一篇文章，学习教程是廖雪峰老师的Java教程，<a href="https://www.liaoxuefeng.com/wiki/1252599548343744">点击此处</a>可以查看</p>
@@ -265,6 +178,93 @@
 <p>然后按下回车，结果如下图</p>
 <p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%A3%80%E9%AA%8Cjava%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F.png" alt="运行命令行"></p>
 <p>若是显示java版本号，则环境变量配置成功；若是显示“java不是内部或外部命令”，则配置失败，请检查并重新配置。<br>到此，我们便可以正式开发Java程序了！</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>入门</tag>
+        <tag>Java SE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java SE学习笔记：第一个Java程序</title>
+    <url>/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p>本文是Java SE学习笔记的第二篇文章，来分析一下一个简单Java程序的基本构成</p>
+<h2 id="编写第一个Java程序"><a href="#编写第一个Java程序" class="headerlink" title="编写第一个Java程序"></a>编写第一个Java程序</h2><p>打开文本编辑器，输入以下代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这就是一个最基本的Java程序，下面我们来分析下这部分代码</p>
+<span id="more"></span>
+<ul>
+<li>首先是第一行<code>public class Hello&#123;</code><ul>
+<li>这行代码的作用是定义一个类，类是Java代码的基本组成，所有的代码都要放在类中</li>
+<li><code>public</code>被称为访问修饰符，是用来控制其他代码对这段代码的访问权限，后续会详细讲解</li>
+<li><code>class</code>是关键字，是用来定义类的，Java所有的代码都是写在类中，后续会对类进行详细讲解</li>
+<li><code>Hello</code>是类名，紧跟在关键字<code>class</code>之后，首字母大写。类名的命名规则是以字母开头，后接字母、数字或下划线的组合（<strong>Java代码是大小写敏感的</strong>）</li>
+<li><code>&#123;</code>花括号，与代码最后面的<code>&#125;</code>是一组，表示类体，类体里包含这个类中所有的代码逻辑</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意，一个文件中可以定义多个类，但是<code>public</code>修饰的类只能有一个，并且类名必须与文件名相同。这是Java规定的，目的是为了让JVM快速定位相关字节码文件的位置，节省时间和性能开销</strong>    </p>
+<ul>
+<li>然后是第二行<code>public static void main(String[] args)&#123;</code>     <ul>
+<li>这行代码的作用是定义一个方法，而且是主方法，关于方法后续会详细讲解，此处暂且不表</li>
+<li><code>public</code>已经讲过，此处不再赘述</li>
+<li><code>static</code>表示这个方法是静态的，后续会详细讲解，目前可以理解为是特定的格式</li>
+<li><code>void</code>表示这个方法是无返回值的，后续会详细讲解，目前可以理解为是特定的格式</li>
+<li><code>main</code>是方法名，命名规则和类名一致，命名规范为驼峰原则（首字母小写，若方法名由多个单词组成，后续单词首字母大写，比如helloWorld）  </li>
+<li><code>(String[] args)</code>为方法参数，紧跟在方法名之后，<code>()</code>必须存在，但括号内可以没有内容；<code>String[] args</code>为方法的形式参数，方法参数的数量没有限制，可以没有、有一个或多个<ul>
+<li><code>String[]</code>为参数类型，此处表示参数的类型是字符串数组</li>
+<li><code>args</code>是参数名，命名规范同样遵循驼峰原则</li>
+<li><code>&#123;</code>花括号，与代码倒数第二个<code>&#125;</code>是一组，表示方法体，方法体中包含本方法的全部代码逻辑</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意，main是主方法，是整个Java程序的入口，是一个特殊的方法，写法固定不变</strong>    </p>
+<ul>
+<li>最后是第三行<code>System.out.println(&quot;第一个程序&quot;);</code><ul>
+<li>这行代码的作用是在控制台上输出一行文字，需要输出的文字在括号内用<code>&quot;&quot;</code>括起来</li>
+<li>语句用<code>;</code>结尾，回车和换行并不是判断一个语句是否结束的标志</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意，代码的缩进不是必须的，但是缩进后代码美观，结构也更加清晰</strong></p>
+<p>到此，一个最简单的Java程序我们就分析完了，现在我们将它保存到相关文件夹，文件名为<code>Hello.java</code></p>
+<h2 id="运行Java程序"><a href="#运行Java程序" class="headerlink" title="运行Java程序"></a>运行Java程序</h2><p>在文件保存的位置，打开命令提示符（Windows在文件的路径栏中输入<code>cmd</code>，然后按下回车），如下图所示  </p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6.png" alt="从路径栏打开命令行串口"></p>
+<p>打开后在命令提示行中输入<code>javac Hello.java</code>，<code>javac</code>就是java编译器，它的作用是将java源代码文件（.java）编译成字节码文件（.class）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br></pre></td></tr></table></figure>
+<p>输入后按下回车</p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/javac%E6%B1%89%E5%AD%97%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF.png" alt="javac源代码文件"></p>
+<p>如图，会显示编码GBK的不可映射字符错误，出现这种问题的原因一般是代码中包含中文，这是因为我们使用<code>cmd</code>运行java代码的时候，系统默认使用的是GBK编码格式，而含有中文代码的格式一般为UTF-8格式，所以直接运行会产生这个错误。<br>正确的办法是使用<code>javac -encoding utf-8 Hello.java</code>命令来编译代码</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">javac -encoding utf-<span class="number">8</span> Hello.java</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/javac%E7%BC%96%E7%A0%81%E7%BC%96%E8%AF%91.png" alt="javac编码编译"></p>
+<p>如图，编译后若没有出现任何提示，则编译成功，此时源代码所在目录下应该出现了同名的class文件</p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" alt="javac编码编译"></p>
+<p>到此，我们便成功编译了源文件，此时我们在命令行中输入<code>java Hello</code></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+<p>然后回车</p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E8%BF%90%E8%A1%8C%E5%AD%97%E8%8A%82%E7%A0%81.png" alt="运行字节码"></p>
+<p>命令行上显示出了我们在代码中编写的汉字，到此，Java程序运行成功！    </p>
+<p><strong>注意，<code>java</code>指令就是启动Java虚拟机，接收参数是<code>.class</code>文件，所以参数只传文件名而不需传入文件类型，所以是<code>java Hello</code>而不是<code>java Hello.class</code></strong></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>在程序中，注释是给开发者以提示的文字信息，不会参与到程序的运行当中，编译器会自动忽略注释<br>在Java中，注释分为三种：单行注释、多行注释和文档注释</p>
+<ul>
+<li>单行注释：使用<code>//</code>，后接注释的文字。这种注释只能单行使用</li>
+<li>多行注释：使用<code>/**/</code>将要注释的文字括起来，<code>/*</code>和<code>*/</code>之间的文字都是注释的内容</li>
+<li>文档注释：使用<code>/***/</code>，一般用于描述该文件的信息，可配合javadoc命令生成说明文档<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Hello</span></span><br><span class="line"><span class="comment"> * 我是文档注释</span></span><br><span class="line"><span class="comment"> * 时间：2021/7/26</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);<span class="comment">//我是单行注释</span></span><br><span class="line">        System.out.println(<span class="string">&quot;第二个程序&quot;</span>)<span class="comment">/*我是多行注释</span></span><br><span class="line"><span class="comment">         System.out.println(&quot;第三个程序&quot;);*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>注意，多行注释和文档注释均不可多层嵌套，java编译器会自动检测首个注释的结尾</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);<span class="comment">//我是单行注释</span></span><br><span class="line">        System.out.println(<span class="string">&quot;第二个程序&quot;</span>)<span class="comment">/*我是多行注释</span></span><br><span class="line"><span class="comment">         System.out.println(&quot;第三个程序&quot;);*/</span></span><br><span class="line">         System.out.println(<span class="string">&quot;第四个程序&quot;</span>);*/</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，因为使用了多行注释多层嵌套，编译器默认注释的结尾是第三个程序后面的<code>*/</code>而不是第四个程序后面的<code>*/</code></p>
+<h2 id="IDE工具"><a href="#IDE工具" class="headerlink" title="IDE工具"></a>IDE工具</h2><p>到目前为止我们使用的开发工具是文档编辑器，编写完代码后需要我们手动编译和运行，十分不便。而在日常开发中，我们会使用更加强大的IDE开发环境，目前主流的Java开发IDE大致有以下几种：</p>
+<ul>
+<li>Eclipse：非常经典的Java开发软件，绝大多数开发者的入门首选，而且免费，下载<a href="https://www.eclipse.org/downloads/">点击这里</a></li>
+<li>Intellij IDEA：JetBrains公司研发的强大开发环境，拥有着极为强大的功能，逐渐占据Java开发的主流市场，分为社区版和旗舰版，社区版免费，旗舰版收费，下载<a href="https://www.jetbrains.com/idea/download/#section=windows">点击这里</a></li>
+<li>VSCode：微软开发的微型文档编辑器，轻量便捷，支持安装各种扩展插件，对Java有着不错的支持，但是作为企业开发还是和上述两者差距较大，下载<a href="https://code.visualstudio.com/">点击这里</a></li>
+</ul>
+<p>到这里，本文也接近了尾声，下一篇文章我们来讲一讲Java的变量和数据类型，我们下一篇文章见！</p>
 ]]></content>
       <categories>
         <category>Java</category>
