@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/M.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/M.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.hackerfengying.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文是Java SE学习笔记的第一篇文章，学习教程是廖雪峰老师的Java教程，点击此处可以查看 Java简介Java是目前应用最广泛的编程语言，目前大量应用在公司服务端搭建、大数据开发和Android开发当中(Android目前正在主推Kotlin语言，但Kotlin语言也是在Java语言的基础上发展而来)         Java的优秀特性有以下几方面：  Java拥有出色的跨平台机制，可以实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java SE学习笔记：Java简介">
+<meta property="og:url" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Hacker封影 Blog">
+<meta property="og:description" content="本文是Java SE学习笔记的第一篇文章，学习教程是廖雪峰老师的Java教程，点击此处可以查看 Java简介Java是目前应用最广泛的编程语言，目前大量应用在公司服务端搭建、大数据开发和Android开发当中(Android目前正在主推Kotlin语言，但Kotlin语言也是在Java语言的基础上发展而来)         Java的优秀特性有以下几方面：  Java拥有出色的跨平台机制，可以实现">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/Java%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/JDK%E4%B8%8B%E8%BD%BD%E5%B9%B3%E5%8F%B0%E9%80%89%E6%8B%A9.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%90%9C%E7%B4%A2%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%96%B0%E5%BB%BAJAVAHOME%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%96%B0%E5%BB%BAJAVAHOME%E5%8F%98%E9%87%8F%E5%B9%B6%E8%B5%8B%E5%80%BC.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%89%93%E5%BC%80path%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%9B%B4%E6%94%B9path%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E5%B0%86JAVAHOME%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E5%88%B0path%E5%8F%98%E9%87%8F%E4%B8%AD.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/cmd.png">
+<meta property="og:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%A3%80%E9%AA%8Cjava%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F.png">
+<meta property="article:published_time" content="2021-07-22T01:53:44.000Z">
+<meta property="article:modified_time" content="2021-07-29T10:34:32.000Z">
+<meta property="article:author" content="Hacker封影">
+<meta property="article:tag" content="入门">
+<meta property="article:tag" content="Java SE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/Java%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png">
+
+<link rel="canonical" href="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java SE学习笔记：Java简介 | Hacker封影 Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hacker封影 Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hacker封影 Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一位菜鸡程序猿在编程道路上的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Hacker1248084491" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Hacker封影">
+      <meta itemprop="description" content="Java、Android">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hacker封影 Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java SE学习笔记：Java简介
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-22 09:53:44" itemprop="dateCreated datePublished" datetime="2021-07-22T09:53:44+08:00">2021-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-29 18:34:32" itemprop="dateModified" datetime="2021-07-29T18:34:32+08:00">2021-07-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文是Java SE学习笔记的第一篇文章，学习教程是廖雪峰老师的Java教程，<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744">点击此处</a>可以查看</p>
+<h2 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h2><p>Java是目前应用最广泛的编程语言，目前大量应用在公司服务端搭建、大数据开发和Android开发当中(<strong>Android目前正在主推Kotlin语言，但Kotlin语言也是在Java语言的基础上发展而来</strong>)        </p>
+<p>Java的优秀特性有以下几方面：</p>
+<ul>
+<li>Java拥有出色的跨平台机制，可以实现代码一次编译，到处运行</li>
+<li>Java拥有垃圾回收机制，无需手动管理内存</li>
+<li>Java拥有出色的性能和稳定性</li>
+<li>Java拥有大量活跃的开源社区<span id="more"></span></li>
+</ul>
+<h2 id="Java发展历史"><a href="#Java发展历史" class="headerlink" title="Java发展历史"></a>Java发展历史</h2><p>Java语言是由James Gosling开发，并于1995年正式发布。Java的开发公司为SUN公司，后被Oracle公司收购，Java也由Oracle公司继续开发。<br>Java被设计出来的初衷是应用于小型家电设备之上，例如电视机顶盒，但是推出后市场反响平平。<br>当时正值互联网爆发之际，大家纷纷把自己的电脑接入到互联网，但是因为电脑系统各异，编程语言也各不相同，造成各个电脑之间无法正常通信。人们此时迫切的需要一门可以在各个平台上正常运行的跨平台语言，而Java语言本身正好拥有这种特性，借此Java便开始迅速发展开来。<br>Java本来叫做Oak，但是发布时发现有一门语言也叫Oak，于是便改名为Java。  </p>
+<h2 id="Java版本"><a href="#Java版本" class="headerlink" title="Java版本"></a>Java版本</h2><p>Java分为三个版本，分别为Java SE、Java EE和Java ME，三个版本的差别如下：</p>
+<ul>
+<li>Java SE：标准版，包含Java各个功能，是Java的核心版本</li>
+<li>Java EE：企业版，在Java SE的基础上加上了大量的企业开发库，一般为企业开发使用</li>
+<li>Java ME：微型版，可以认为是Java SE的裁剪版，主要用于小型设备上，但是没有发展起来，反倒是Android在移动端发展得风生水起</li>
+</ul>
+<h2 id="编译型语言和解释型语言"><a href="#编译型语言和解释型语言" class="headerlink" title="编译型语言和解释型语言"></a>编译型语言和解释型语言</h2><p>编程语言一般分为两种，编译型和解释型，下面来讲一讲两者的不同：</p>
+<ul>
+<li><p>编译型语言：源代码经过编译器编译后生成和平台相关的可执行文件（<strong>如Windows上的.exe文件</strong>），特点是一次编译多次运行，使用者只需要编译后的可执行文件就可以了，不需要源代码，所以运行速度较快。代表语言有C和C++，主要优点和缺点如下：</p>
+<ul>
+<li>优点： <ol>
+<li>一次编译多次运行</li>
+<li>运行速度快，运行效率高</li>
+<li>与平台绑定较深，可为特定平台发挥更强的功能</li>
+<li>性能开销较低</li>
+</ol>
+</li>
+<li>缺点：  <ol>
+<li>跨平台能力差(不是不能跨，但是能力较差)</li>
+<li>编译器编写难度较高</li>
+<li>一般无法动态检查代码</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>解释型语言：源代码通过解释器解释为可执行代码，解释过程为解释一句执行一句，然后再次解释下一行，再执行一句，循环往复。特点是多次编译多次运行，使用者需要源代码文件，可以实现跨平台，但是速度较慢。代表语言有Python，主要优点和缺点如下：</p>
+<ul>
+<li>优点： <ol>
+<li>跨平台（<strong>通过为不同平台编写不同的解释器实现</strong>）</li>
+<li>解释器编写较为简单</li>
+<li>执行过程可以动态检查代码</li>
+</ol>
+</li>
+<li>缺点：  <ol>
+<li>运行效率较差（不少解释器经过优化，其性能已经不输于编译型语言）</li>
+<li>对系统性能要求较高</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>到这里为止，可能会有人产生疑问，解释型语言是通过为不同平台编写相应的解释器而实现跨平台的，那么编译型语言能否通过为不同平台编写相应的编译器而实现跨平台呢？<br>答案是<strong>可以的，但是没必要</strong>。原因是大部分编译型语言，例如C语言，是会针对平台做出具体优化的。<br>比如在windows平台上C语言可能会有一些特定的功能启用，但是在mac平台上就无法使用；而如果编写了跨平台的编译器，那么针对windows上的特殊优化在mac上就无法实现，同一套代码无法在不同平台上正常运行，无法使用特定的优化功能，这也就意味着性能的损失，这样强行跨平台就失去了意义，是完全没必要的（<strong>这里举得windows和mac的例子不准确，我只是为了说明编译型语言跨平台的不必要性而举个例子，并不是C语言在windows和mac上真如我说的那样。若要查看C语言在不同平台的差异，请自行百度</strong>）<br>那么Java是编译型语言还是解释型语言呢，其实严格来说Java并不属于这两者。<br>Java代码的执行过程是，先将源代码编译为一种和平台无关的字节码文件（.class文件，<strong>此举是为了加快Java代码的编译速度</strong>），然后再将字节码文件交由各个平台的解释器来解释为可执行代码（<strong>实现跨平台</strong>）。<br>因为又有编译又有解释，所以严格按照定义来区分Java语言是不合适的，其实我们并不关心Java到底是哪种语言，只要知道它的执行原理就可以了，严格扣字面意思是没有意义的，黑猫白猫能抓耗子就是好猫。</p>
+<h2 id="Java名词解释"><a href="#Java名词解释" class="headerlink" title="Java名词解释"></a>Java名词解释</h2><ul>
+<li>JVM：全称为Java Virual Machine，Java虚拟机，是Java的核心，跨平台也正是依靠虚拟机来实现的。<br>虚拟机负责将字节码文件解释为和平台相关的可执行代码，也是虚拟机来保证同一套代码在不同平台上运行的结果是一致的。<br>不同平台都有不同的虚拟机，目前几乎所有主流平台都有对应的虚拟机，虚拟机由Java的开发公司编写。</li>
+<li>JRE：全称为Java Runtime Environment，Java运行环境，是运行一个Java程序的必要条件。JRE由JVM加上一些运行时库组成，以保证Java程序的正常运行。</li>
+<li>JDK：全称为Java Development Kit，Java开发工具包，是开发Java程序的必须工具。JDK由JRE加上编译器、调试器等工具组成。</li>
+<li>JSR：全称为Java Specification Request，Java规范请求，为Java的各个功能定下规范。当有厂商想要做关于Java某种功能的产品时，需要遵守JSR中关于此功能的规范，以保证其他Java开发者开发程序的相关功能在此厂商的产品上可以正常运行。</li>
+<li>JCP：全称为Java Community Process，审核JSR的组织，在全世界的Java开发者中选出。</li>
+<li>RI：全称为Reference Implementation，参考实现，JSR规范发布时，需要同时发布一个实现新功能的参考示例，以保证新的功能确实可以实现（类似于demo）</li>
+<li>TCK：全称为Technology Compatibility Kit，兼容性测试套件，在JSR规范发布时同时发布，用来检测厂商做出的产品功能是否符合JSR</li>
+</ul>
+<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>我的系统是windows，所以这里只记录JDK在windows上的安装方法，其他平台请参考廖雪峰老师的教程，链接已在上面给出。</p>
+<ul>
+<li>下载安装包：打开<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle官网Java的下载地址</a>，选择自己想要的版本，一般下载最新版本即可</li>
+</ul>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/Java%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png" alt="JDK下载界面"></p>
+<p>选择Windows平台，这里有两种安装包，一种是.exe安装程序，一种是.zip压缩包，根据个人需求选择，这里我选择的是zip</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/JDK%E4%B8%8B%E8%BD%BD%E5%B9%B3%E5%8F%B0%E9%80%89%E6%8B%A9.png" alt="JDK版本选择界面"></p>
+<p>下载完成后，如果是.zip版本，直接解压到自己指定的文件夹即可；如果是.exe版本，双击打开后一直点击下一步，直到选择安装目录时指定自己想安装的路径即可。</p>
+<ul>
+<li>配置环境变量：在此先介绍一下环境变量的作用：当一个程序被调用时，若调用未发生在程序所在目录，就会查找环境变量中path变量设置的路径，若是path变量中的路径也没有找到此程序，那么此次调用就会失败。所以配置环境变量是为了在任何目录下都能调用Java程序。<br>现在我们来配置环境变量，利用系统搜索功能，直接搜索环境变量，如下图所示</li>
+</ul>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%90%9C%E7%B4%A2%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="搜索环境变量"></p>
+<p>点击编辑系统环境变量，显示新的窗口，再点击环境变量按钮，如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="环境变量"></p>
+<p>打开环境变量编辑界面，在系统变量下点击新建按钮，如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%96%B0%E5%BB%BAJAVAHOME%E5%8F%98%E9%87%8F.png" alt="编辑环境变量"></p>
+<p>在新的窗口中输入下图字段</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%96%B0%E5%BB%BAJAVAHOME%E5%8F%98%E9%87%8F%E5%B9%B6%E8%B5%8B%E5%80%BC.png" alt="新建JAVAHOME变量"></p>
+<p>其中变量名为JAVA_HOME（<strong>变量名不是必须为JAVA_HOME，只是大家一般都这么写，算是一种约定俗成的规范</strong>），变量值为jdk的安装路径，输入后点击确定。然后我们更改path变量，如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%89%93%E5%BC%80path%E5%8F%98%E9%87%8F.png" alt="编辑path变量"></p>
+<p>编辑path变量，在列表里将刚刚新建的JAVA_HOME变量添加到path变量中，并置顶（<strong>置顶的目的是为了保证本次设置的JDK一定会被最先调用，因为一台电脑上可能不仅只有一个版本的JDK，若是path环境中同时存在多个JDK，那么会优先调用在path中最靠前的那一个</strong>），如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%9B%B4%E6%94%B9path%E5%8F%98%E9%87%8F.png" alt="在path中新建变量"></p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E5%B0%86JAVAHOME%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E5%88%B0path%E5%8F%98%E9%87%8F%E4%B8%AD.png" alt="新建并置顶JAVAHOME变量"></p>
+<p><strong>这里的调用格式解释下：一对%之间放置我们刚才定义好的JAVA_HOME变量，这行指令的意思是调用这个变量的值，也就是我们指定的<code>C:\Program Files\Java\jdk-15.0.2</code>，后面在加上<code>\bin</code>，所以这条指令指定的完整路径是<code>C:\Program Files\Java\jdk-15.0.2\bin</code>，而这个目录下放置着java绝大多数的执行程序，<code>%JAVA_HOME%</code>是一种简便写法</strong></p>
+<p>此时，我们便将环境变量设置好了，现在我们来检验一下，在桌面按住windows键（键盘左下角显示微软图标的那个按键）+R，弹出运行窗口，在窗口中输入cmd，打开命令行，如下图</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/cmd.png" alt="打开cmd"></p>
+<p>在打开的命令行内输入java -version</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<p>然后按下回车，结果如下图</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%A3%80%E9%AA%8Cjava%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F.png" alt="运行命令行"></p>
+<p>若是显示java版本号，则环境变量配置成功；若是显示“java不是内部或外部命令”，则配置失败，请检查并重新配置。<br>到此，我们便可以正式开发Java程序了！</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Hacker封影
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.hackerfengying.cn/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/" title="Java SE学习笔记：Java简介">https://www.hackerfengying.cn/2021/07/22/JavaSE/Java简介/Java-SE学习笔记：Java简介/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%85%A5%E9%97%A8/" rel="tag"><i class="fa fa-tag"></i> 入门</a>
+              <a href="/tags/Java-SE/" rel="tag"><i class="fa fa-tag"></i> Java SE</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="hexo搭建个人博客">
+      <i class="fa fa-chevron-left"></i> hexo搭建个人博客
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/" rel="next" title="Java SE学习笔记：第一个Java程序">
+      Java SE学习笔记：第一个Java程序 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Java简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-number">2.</span> <span class="nav-text">Java发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%89%88%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">Java版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80"><span class="nav-number">4.</span> <span class="nav-text">编译型语言和解释型语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="nav-number">5.</span> <span class="nav-text">Java名词解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85JDK"><span class="nav-number">6.</span> <span class="nav-text">安装JDK</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hacker封影"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Hacker封影</p>
+  <div class="site-description" itemprop="description">Java、Android</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Hacker1248084491" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Hacker1248084491" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hacker1248084491@gmail.com" title="E-Mail → mailto:hacker1248084491@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/HackerFengYing" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;HackerFengYing" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hacker封影</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">9k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">8 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

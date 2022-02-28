@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo搭建个人博客</title>
+    <url>/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>在刚进入编程这一行业时，我就知道写技术博客的好处和重要性，但是因为各种各样原因一直没动笔写（主要是因为懒），到最后发现还是躲不过这一关，索性就从现在开始行动起来。</p>
+<p>目前我的博客主要是当作学习笔记来使用，如果以后技术水平有了足够的提升，我会在博客里分享一些自己写的技术文章，若是能给看到的朋友一点小小的启发，我将倍感荣幸。</p>
+<p>这是我的第一篇博客，记录一下利用hexo搭建个人博客的步骤以及在这个过程中我个人的一些经验。</p>
+<h2 id="视频资源"><a href="#视频资源" class="headerlink" title="视频资源"></a>视频资源</h2><p>我是根据CodeSheep（程序羊）大佬的视频教程入门的，大佬使用的是mac系统，而我使用的是Windows10系统，想看视频的朋友请<a href="https://www.bilibili.com/video/BV1Yb411a7ty">点击这里</a></p>
+<span id="more"></span>
+
+<h2 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h2><ul>
+<li>下载并安装node.js<br>打开<a href="https://nodejs.org/zh-cn/">node.js的官网</a>，下载自己需要的版本，这里我选择的是长期支持版</li>
+</ul>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/nodejs%E5%AE%98%E7%BD%91.jpg" alt="node.js官网">    </p>
+<p>下载好后打开安装包，一直点击下一步，直到安装完成</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/nodejs%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4.png" alt="node.js安装步骤">    </p>
+<ul>
+<li>下载并安装Git<br>打开<a href="https://git-scm.com/downloads">Git官网安装程序下载地址</a>，选择windows版本下载</li>
+</ul>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/git%E5%AE%98%E7%BD%91.png" alt="Git官网安装程序下载">    </p>
+<p>打开安装程序，一直点击下一步，直到程序安装完成即可</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>在桌面右键菜单，点击Git Bash Here，弹出git命令行窗口</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/gitbashhere.png" alt="Git Bash Here"></p>
+<p>输入命令npm install -g hexo-cli安装hexo</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>稍等片刻，hexo即可安装完成<br><strong>注意，若没有开启科学上网，此步骤可能会进行的较慢，可以参考程序羊大佬视频教程中的方法来安装hexo</strong></p>
+<h2 id="初始化并配置博客"><a href="#初始化并配置博客" class="headerlink" title="初始化并配置博客"></a>初始化并配置博客</h2><p>在合适的位置新建文件夹，在文件夹内右键菜单点击Git Bash Here，在命令行内输入hexo init来初始化博客</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+<p>等待程序运行完成后博客的初始化也就完成了，此时博客文件夹内文件如下图所示</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%8D%9A%E5%AE%A2%E6%96%87%E4%BB%B6.png" alt="博客文件夹内容"></p>
+<p>此时的博客已经可以运行了，在命令行内输入hexo s来在本地运行博客</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>结果如下图所示</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8Chexo.png" alt="hexo s命令结果"></p>
+<p>此时可以打开浏览器，在搜索栏内输入<code>localhost:4000</code>来查看博客</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%9C%AC%E5%9C%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%8D%9A%E5%AE%A2.png" alt="本地初始化的博客"></p>
+<p>到此，一个博客就初步搭建完成了，但是目前这个博客只能运行在本地，我们还需要将它部署在服务器上，这里我们选择将它部署在github上<br><strong>注意，初始化博客的文件夹放置着博客的所有文件，文件夹被删除的话，博客的源码也就被删除了，所以请妥善保存</strong></p>
+<h2 id="将博客部署到云端"><a href="#将博客部署到云端" class="headerlink" title="将博客部署到云端"></a>将博客部署到云端</h2><p>首先我们需要一个github账号，github注册的相关步骤请自行百度，此处不再赘述<br>登陆到github后，我们新建一个仓库，注意仓库的名称必须为<code>账号名.github.io</code>，而且仓库必须为公开的，否则无法访问，如下图所示</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%88%9B%E5%BB%BAhexogithub%E4%BB%93%E5%BA%93.png" alt="创建hexogithub仓库"></p>
+<p>接下来安装hexo推送到仓库的插件，在git bash命令行输入npm install hexo-deployer-git –save</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>安装完成后，我们就可以使用命令将博客部署到github上，在此之前我们需要设置博客的配置文件_config.yml<br>打开_config.yml文件，将光标拉到最下方，按下图补全代码</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="使用ssh来设置配置文件"></p>
+<p>此处我是用ssh来设置仓库地址，ssh方式无需输入密码，而且传输速度快，但是需要设置ssh密匙，此处为git知识，本文不再赘述，在此我推荐廖雪峰老师的git教程，<a href="https://www.liaoxuefeng.com/wiki/896043488029600/898732864121440">点击此处</a>查看</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="使用https的方式来配置文件"></p>
+<p>这里是使用http的方式来连接远程仓库，虽然无需使用ssh密匙，但需要输入账户密码，请根据自己的需要自行选择<br><strong>注意，此处使用ssh方式时，type的值为git，而使用http方式时，type的值为’git’，后者需加上引号，否则无法弹出登录框</strong></p>
+<p>将配置文件设置好之后，在命令行调用hexo d，即可将博客部署到github仓库上</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>打开浏览器，在地址栏输入<code>账号名.github.io</code>，即可打开博客，如下图</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/hexo%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BF%E9%97%AE.png" alt="github打开博客"></p>
+<p><strong>注意，将博客部署到github上后，生效需要一段时间</strong></p>
+<p>到此，我们就将博客成功搭建并部署到云端了！</p>
+<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><p>hexo有一些比较常用的命令，在此列举如下</p>
+<ul>
+<li>hexo clean 清理文件夹(清除编译产生的文件)</li>
+<li>hexo g 生成文件(可以理解为编译)</li>
+<li>hexo s 在本地运行博客</li>
+<li>hexo d 将博客推送到指定的服务器(一般为github)</li>
+</ul>
+<p>这些是常用命令的大概用法，想要进一步研究，可以自行前往<a href="https://hexo.io/zh-cn/docs/">hexo官网</a>查看文档</p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>部署好博客后，可以使用<code>账号名.github.io</code>的方式访问博客，但其实我们可以绑定自己的域名，让自己的博客看起来更加的高大上，更加正规，在这里我记录下本人绑定域名的过程</p>
+<p>首先申请域名，这一步请自行百度，本人是使用的阿里云服务购买了域名，域名通过实名认证后，解析域名，将域名解析为CNAME类型，如下图所示</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/CNAME%E7%B1%BB%E5%9E%8B%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.png" alt="解析CNAME类型域名"></p>
+<p>记录类型选为CNAME，主机记录中填入www，记录值为<code>账号名.github.io</code><br>域名解析完毕后，在博客文件夹下的source文件夹下，新建CNAME文件(<strong>注意此文件无文件类型</strong>)，如下图所示</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/CNAME%E6%96%87%E4%BB%B6.png" alt="CNAME文件"></p>
+<p>在文件内填写自己的域名</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%9F%9F%E5%90%8D%E5%9B%BE%E7%89%87.png" alt="CNAME文件填写自己域名"></p>
+<p>填写完毕后，打开命令行，依次输入以下代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>打开自己的github账户，点击相应仓库的设置，点击page，即可看到github正在设置域名(此处无需手动输入，github自动检测CNAME文件中的域名)，最终如下图所示即为绑定成功</p>
+<p><img src="/2021/07/19/Hexo/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/githubpage%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D.png" alt="github绑定域名成功"></p>
+<p>现在我们就可以使用自己的域名来访问博客了！</p>
+<hr>
+<p>到此，本文的内容就基本结束了，这是我的第一篇博客，下一篇我会讲一讲使用主题来美化自己的博客，我们下篇文章再见！</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java SE学习笔记：第一个Java程序</title>
+    <url>/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p>本文是Java SE学习笔记的第二篇文章，来分析一下一个简单Java程序的基本构成</p>
+<h2 id="编写第一个Java程序"><a href="#编写第一个Java程序" class="headerlink" title="编写第一个Java程序"></a>编写第一个Java程序</h2><p>打开文本编辑器，输入以下代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这就是一个最基本的Java程序，下面我们来分析下这部分代码</p>
+<span id="more"></span>
+<ul>
+<li>首先是第一行<code>public class Hello&#123;</code><ul>
+<li>这行代码的作用是定义一个类，类是Java代码的基本组成，所有的代码都要放在类中</li>
+<li><code>public</code>被称为访问修饰符，是用来控制其他代码对这段代码的访问权限，后续会详细讲解</li>
+<li><code>class</code>是关键字，是用来定义类的，Java所有的代码都是写在类中，后续会对类进行详细讲解</li>
+<li><code>Hello</code>是类名，紧跟在关键字<code>class</code>之后，首字母大写。类名的命名规则是以字母开头，后接字母、数字或下划线的组合（<strong>Java代码是大小写敏感的</strong>）</li>
+<li><code>&#123;</code>花括号，与代码最后面的<code>&#125;</code>是一组，表示类体，类体里包含这个类中所有的代码逻辑</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意，一个文件中可以定义多个类，但是<code>public</code>修饰的类只能有一个，并且类名必须与文件名相同。这是Java规定的，目的是为了让JVM快速定位相关字节码文件的位置，节省时间和性能开销</strong>    </p>
+<ul>
+<li>然后是第二行<code>public static void main(String[] args)&#123;</code>     <ul>
+<li>这行代码的作用是定义一个方法，而且是主方法，关于方法后续会详细讲解，此处暂且不表</li>
+<li><code>public</code>已经讲过，此处不再赘述</li>
+<li><code>static</code>表示这个方法是静态的，后续会详细讲解，目前可以理解为是特定的格式</li>
+<li><code>void</code>表示这个方法是无返回值的，后续会详细讲解，目前可以理解为是特定的格式</li>
+<li><code>main</code>是方法名，命名规则和类名一致，命名规范为驼峰原则（首字母小写，若方法名由多个单词组成，后续单词首字母大写，比如helloWorld）  </li>
+<li><code>(String[] args)</code>为方法参数，紧跟在方法名之后，<code>()</code>必须存在，但括号内可以没有内容；<code>String[] args</code>为方法的形式参数，方法参数的数量没有限制，可以没有、有一个或多个<ul>
+<li><code>String[]</code>为参数类型，此处表示参数的类型是字符串数组</li>
+<li><code>args</code>是参数名，命名规范同样遵循驼峰原则</li>
+<li><code>&#123;</code>花括号，与代码倒数第二个<code>&#125;</code>是一组，表示方法体，方法体中包含本方法的全部代码逻辑</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意，main是主方法，是整个Java程序的入口，是一个特殊的方法，写法固定不变</strong>    </p>
+<ul>
+<li>最后是第三行<code>System.out.println(&quot;第一个程序&quot;);</code><ul>
+<li>这行代码的作用是在控制台上输出一行文字，需要输出的文字在括号内用<code>&quot;&quot;</code>括起来</li>
+<li>语句用<code>;</code>结尾，回车和换行并不是判断一个语句是否结束的标志</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意，代码的缩进不是必须的，但是缩进后代码美观，结构也更加清晰</strong></p>
+<p>到此，一个最简单的Java程序我们就分析完了，现在我们将它保存到相关文件夹，文件名为<code>Hello.java</code></p>
+<h2 id="运行Java程序"><a href="#运行Java程序" class="headerlink" title="运行Java程序"></a>运行Java程序</h2><p>在文件保存的位置，打开命令提示符（Windows在文件的路径栏中输入<code>cmd</code>，然后按下回车），如下图所示  </p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6.png" alt="从路径栏打开命令行串口"></p>
+<p>打开后在命令提示行中输入<code>javac Hello.java</code>，<code>javac</code>就是java编译器，它的作用是将java源代码文件（.java）编译成字节码文件（.class）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br></pre></td></tr></table></figure>
+<p>输入后按下回车</p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/javac%E6%B1%89%E5%AD%97%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF.png" alt="javac源代码文件"></p>
+<p>如图，会显示编码GBK的不可映射字符错误，出现这种问题的原因一般是代码中包含中文，这是因为我们使用<code>cmd</code>运行java代码的时候，系统默认使用的是GBK编码格式，而含有中文代码的格式一般为UTF-8格式，所以直接运行会产生这个错误。<br>正确的办法是使用<code>javac -encoding utf-8 Hello.java</code>命令来编译代码</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">javac -encoding utf-<span class="number">8</span> Hello.java</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/javac%E7%BC%96%E7%A0%81%E7%BC%96%E8%AF%91.png" alt="javac编码编译"></p>
+<p>如图，编译后若没有出现任何提示，则编译成功，此时源代码所在目录下应该出现了同名的class文件</p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" alt="javac编码编译"></p>
+<p>到此，我们便成功编译了源文件，此时我们在命令行中输入<code>java Hello</code></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+<p>然后回车</p>
+<p><img src="/2021/07/26/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F/%E8%BF%90%E8%A1%8C%E5%AD%97%E8%8A%82%E7%A0%81.png" alt="运行字节码"></p>
+<p>命令行上显示出了我们在代码中编写的汉字，到此，Java程序运行成功！    </p>
+<p><strong>注意，<code>java</code>指令就是启动Java虚拟机，接收参数是<code>.class</code>文件，所以参数只传文件名而不需传入文件类型，所以是<code>java Hello</code>而不是<code>java Hello.class</code></strong></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>在程序中，注释是给开发者以提示的文字信息，不会参与到程序的运行当中，编译器会自动忽略注释<br>在Java中，注释分为三种：单行注释、多行注释和文档注释</p>
+<ul>
+<li>单行注释：使用<code>//</code>，后接注释的文字。这种注释只能单行使用</li>
+<li>多行注释：使用<code>/**/</code>将要注释的文字括起来，<code>/*</code>和<code>*/</code>之间的文字都是注释的内容</li>
+<li>文档注释：使用<code>/***/</code>，一般用于描述该文件的信息，可配合javadoc命令生成说明文档<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Hello</span></span><br><span class="line"><span class="comment"> * 我是文档注释</span></span><br><span class="line"><span class="comment"> * 时间：2021/7/26</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);<span class="comment">//我是单行注释</span></span><br><span class="line">        System.out.println(<span class="string">&quot;第二个程序&quot;</span>)<span class="comment">/*我是多行注释</span></span><br><span class="line"><span class="comment">         System.out.println(&quot;第三个程序&quot;);*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>注意，多行注释和文档注释均不可多层嵌套，java编译器会自动检测首个注释的结尾</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;第一个程序&quot;</span>);<span class="comment">//我是单行注释</span></span><br><span class="line">        System.out.println(<span class="string">&quot;第二个程序&quot;</span>)<span class="comment">/*我是多行注释</span></span><br><span class="line"><span class="comment">         System.out.println(&quot;第三个程序&quot;);*/</span></span><br><span class="line">         System.out.println(<span class="string">&quot;第四个程序&quot;</span>);*/</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，因为使用了多行注释多层嵌套，编译器默认注释的结尾是第三个程序后面的<code>*/</code>而不是第四个程序后面的<code>*/</code></p>
+<h2 id="IDE工具"><a href="#IDE工具" class="headerlink" title="IDE工具"></a>IDE工具</h2><p>到目前为止我们使用的开发工具是文档编辑器，编写完代码后需要我们手动编译和运行，十分不便。而在日常开发中，我们会使用更加强大的IDE开发环境，目前主流的Java开发IDE大致有以下几种：</p>
+<ul>
+<li>Eclipse：非常经典的Java开发软件，绝大多数开发者的入门首选，而且免费，下载<a href="https://www.eclipse.org/downloads/">点击这里</a></li>
+<li>Intellij IDEA：JetBrains公司研发的强大开发环境，拥有着极为强大的功能，逐渐占据Java开发的主流市场，分为社区版和旗舰版，社区版免费，旗舰版收费，下载<a href="https://www.jetbrains.com/idea/download/#section=windows">点击这里</a></li>
+<li>VSCode：微软开发的微型文档编辑器，轻量便捷，支持安装各种扩展插件，对Java有着不错的支持，但是作为企业开发还是和上述两者差距较大，下载<a href="https://code.visualstudio.com/">点击这里</a></li>
+</ul>
+<p>到这里，本文也接近了尾声，下一篇文章我们来讲一讲Java的变量和数据类型，我们下一篇文章见！</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>入门</tag>
+        <tag>Java SE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java SE学习笔记：Java简介</title>
+    <url>/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p>本文是Java SE学习笔记的第一篇文章，学习教程是廖雪峰老师的Java教程，<a href="https://www.liaoxuefeng.com/wiki/1252599548343744">点击此处</a>可以查看</p>
+<h2 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h2><p>Java是目前应用最广泛的编程语言，目前大量应用在公司服务端搭建、大数据开发和Android开发当中(<strong>Android目前正在主推Kotlin语言，但Kotlin语言也是在Java语言的基础上发展而来</strong>)        </p>
+<p>Java的优秀特性有以下几方面：</p>
+<ul>
+<li>Java拥有出色的跨平台机制，可以实现代码一次编译，到处运行</li>
+<li>Java拥有垃圾回收机制，无需手动管理内存</li>
+<li>Java拥有出色的性能和稳定性</li>
+<li>Java拥有大量活跃的开源社区<span id="more"></span></li>
+</ul>
+<h2 id="Java发展历史"><a href="#Java发展历史" class="headerlink" title="Java发展历史"></a>Java发展历史</h2><p>Java语言是由James Gosling开发，并于1995年正式发布。Java的开发公司为SUN公司，后被Oracle公司收购，Java也由Oracle公司继续开发。<br>Java被设计出来的初衷是应用于小型家电设备之上，例如电视机顶盒，但是推出后市场反响平平。<br>当时正值互联网爆发之际，大家纷纷把自己的电脑接入到互联网，但是因为电脑系统各异，编程语言也各不相同，造成各个电脑之间无法正常通信。人们此时迫切的需要一门可以在各个平台上正常运行的跨平台语言，而Java语言本身正好拥有这种特性，借此Java便开始迅速发展开来。<br>Java本来叫做Oak，但是发布时发现有一门语言也叫Oak，于是便改名为Java。  </p>
+<h2 id="Java版本"><a href="#Java版本" class="headerlink" title="Java版本"></a>Java版本</h2><p>Java分为三个版本，分别为Java SE、Java EE和Java ME，三个版本的差别如下：</p>
+<ul>
+<li>Java SE：标准版，包含Java各个功能，是Java的核心版本</li>
+<li>Java EE：企业版，在Java SE的基础上加上了大量的企业开发库，一般为企业开发使用</li>
+<li>Java ME：微型版，可以认为是Java SE的裁剪版，主要用于小型设备上，但是没有发展起来，反倒是Android在移动端发展得风生水起</li>
+</ul>
+<h2 id="编译型语言和解释型语言"><a href="#编译型语言和解释型语言" class="headerlink" title="编译型语言和解释型语言"></a>编译型语言和解释型语言</h2><p>编程语言一般分为两种，编译型和解释型，下面来讲一讲两者的不同：</p>
+<ul>
+<li><p>编译型语言：源代码经过编译器编译后生成和平台相关的可执行文件（<strong>如Windows上的.exe文件</strong>），特点是一次编译多次运行，使用者只需要编译后的可执行文件就可以了，不需要源代码，所以运行速度较快。代表语言有C和C++，主要优点和缺点如下：</p>
+<ul>
+<li>优点： <ol>
+<li>一次编译多次运行</li>
+<li>运行速度快，运行效率高</li>
+<li>与平台绑定较深，可为特定平台发挥更强的功能</li>
+<li>性能开销较低</li>
+</ol>
+</li>
+<li>缺点：  <ol>
+<li>跨平台能力差(不是不能跨，但是能力较差)</li>
+<li>编译器编写难度较高</li>
+<li>一般无法动态检查代码</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>解释型语言：源代码通过解释器解释为可执行代码，解释过程为解释一句执行一句，然后再次解释下一行，再执行一句，循环往复。特点是多次编译多次运行，使用者需要源代码文件，可以实现跨平台，但是速度较慢。代表语言有Python，主要优点和缺点如下：</p>
+<ul>
+<li>优点： <ol>
+<li>跨平台（<strong>通过为不同平台编写不同的解释器实现</strong>）</li>
+<li>解释器编写较为简单</li>
+<li>执行过程可以动态检查代码</li>
+</ol>
+</li>
+<li>缺点：  <ol>
+<li>运行效率较差（不少解释器经过优化，其性能已经不输于编译型语言）</li>
+<li>对系统性能要求较高</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>到这里为止，可能会有人产生疑问，解释型语言是通过为不同平台编写相应的解释器而实现跨平台的，那么编译型语言能否通过为不同平台编写相应的编译器而实现跨平台呢？<br>答案是<strong>可以的，但是没必要</strong>。原因是大部分编译型语言，例如C语言，是会针对平台做出具体优化的。<br>比如在windows平台上C语言可能会有一些特定的功能启用，但是在mac平台上就无法使用；而如果编写了跨平台的编译器，那么针对windows上的特殊优化在mac上就无法实现，同一套代码无法在不同平台上正常运行，无法使用特定的优化功能，这也就意味着性能的损失，这样强行跨平台就失去了意义，是完全没必要的（<strong>这里举得windows和mac的例子不准确，我只是为了说明编译型语言跨平台的不必要性而举个例子，并不是C语言在windows和mac上真如我说的那样。若要查看C语言在不同平台的差异，请自行百度</strong>）<br>那么Java是编译型语言还是解释型语言呢，其实严格来说Java并不属于这两者。<br>Java代码的执行过程是，先将源代码编译为一种和平台无关的字节码文件（.class文件，<strong>此举是为了加快Java代码的编译速度</strong>），然后再将字节码文件交由各个平台的解释器来解释为可执行代码（<strong>实现跨平台</strong>）。<br>因为又有编译又有解释，所以严格按照定义来区分Java语言是不合适的，其实我们并不关心Java到底是哪种语言，只要知道它的执行原理就可以了，严格扣字面意思是没有意义的，黑猫白猫能抓耗子就是好猫。</p>
+<h2 id="Java名词解释"><a href="#Java名词解释" class="headerlink" title="Java名词解释"></a>Java名词解释</h2><ul>
+<li>JVM：全称为Java Virual Machine，Java虚拟机，是Java的核心，跨平台也正是依靠虚拟机来实现的。<br>虚拟机负责将字节码文件解释为和平台相关的可执行代码，也是虚拟机来保证同一套代码在不同平台上运行的结果是一致的。<br>不同平台都有不同的虚拟机，目前几乎所有主流平台都有对应的虚拟机，虚拟机由Java的开发公司编写。</li>
+<li>JRE：全称为Java Runtime Environment，Java运行环境，是运行一个Java程序的必要条件。JRE由JVM加上一些运行时库组成，以保证Java程序的正常运行。</li>
+<li>JDK：全称为Java Development Kit，Java开发工具包，是开发Java程序的必须工具。JDK由JRE加上编译器、调试器等工具组成。</li>
+<li>JSR：全称为Java Specification Request，Java规范请求，为Java的各个功能定下规范。当有厂商想要做关于Java某种功能的产品时，需要遵守JSR中关于此功能的规范，以保证其他Java开发者开发程序的相关功能在此厂商的产品上可以正常运行。</li>
+<li>JCP：全称为Java Community Process，审核JSR的组织，在全世界的Java开发者中选出。</li>
+<li>RI：全称为Reference Implementation，参考实现，JSR规范发布时，需要同时发布一个实现新功能的参考示例，以保证新的功能确实可以实现（类似于demo）</li>
+<li>TCK：全称为Technology Compatibility Kit，兼容性测试套件，在JSR规范发布时同时发布，用来检测厂商做出的产品功能是否符合JSR</li>
+</ul>
+<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>我的系统是windows，所以这里只记录JDK在windows上的安装方法，其他平台请参考廖雪峰老师的教程，链接已在上面给出。</p>
+<ul>
+<li>下载安装包：打开<a href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle官网Java的下载地址</a>，选择自己想要的版本，一般下载最新版本即可</li>
+</ul>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/Java%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png" alt="JDK下载界面"></p>
+<p>选择Windows平台，这里有两种安装包，一种是.exe安装程序，一种是.zip压缩包，根据个人需求选择，这里我选择的是zip</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/JDK%E4%B8%8B%E8%BD%BD%E5%B9%B3%E5%8F%B0%E9%80%89%E6%8B%A9.png" alt="JDK版本选择界面"></p>
+<p>下载完成后，如果是.zip版本，直接解压到自己指定的文件夹即可；如果是.exe版本，双击打开后一直点击下一步，直到选择安装目录时指定自己想安装的路径即可。</p>
+<ul>
+<li>配置环境变量：在此先介绍一下环境变量的作用：当一个程序被调用时，若调用未发生在程序所在目录，就会查找环境变量中path变量设置的路径，若是path变量中的路径也没有找到此程序，那么此次调用就会失败。所以配置环境变量是为了在任何目录下都能调用Java程序。<br>现在我们来配置环境变量，利用系统搜索功能，直接搜索环境变量，如下图所示</li>
+</ul>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%90%9C%E7%B4%A2%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="搜索环境变量"></p>
+<p>点击编辑系统环境变量，显示新的窗口，再点击环境变量按钮，如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="环境变量"></p>
+<p>打开环境变量编辑界面，在系统变量下点击新建按钮，如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%96%B0%E5%BB%BAJAVAHOME%E5%8F%98%E9%87%8F.png" alt="编辑环境变量"></p>
+<p>在新的窗口中输入下图字段</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%96%B0%E5%BB%BAJAVAHOME%E5%8F%98%E9%87%8F%E5%B9%B6%E8%B5%8B%E5%80%BC.png" alt="新建JAVAHOME变量"></p>
+<p>其中变量名为JAVA_HOME（<strong>变量名不是必须为JAVA_HOME，只是大家一般都这么写，算是一种约定俗成的规范</strong>），变量值为jdk的安装路径，输入后点击确定。然后我们更改path变量，如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%89%93%E5%BC%80path%E5%8F%98%E9%87%8F.png" alt="编辑path变量"></p>
+<p>编辑path变量，在列表里将刚刚新建的JAVA_HOME变量添加到path变量中，并置顶（<strong>置顶的目的是为了保证本次设置的JDK一定会被最先调用，因为一台电脑上可能不仅只有一个版本的JDK，若是path环境中同时存在多个JDK，那么会优先调用在path中最靠前的那一个</strong>），如下图所示</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%9B%B4%E6%94%B9path%E5%8F%98%E9%87%8F.png" alt="在path中新建变量"></p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E5%B0%86JAVAHOME%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E5%88%B0path%E5%8F%98%E9%87%8F%E4%B8%AD.png" alt="新建并置顶JAVAHOME变量"></p>
+<p><strong>这里的调用格式解释下：一对%之间放置我们刚才定义好的JAVA_HOME变量，这行指令的意思是调用这个变量的值，也就是我们指定的<code>C:\Program Files\Java\jdk-15.0.2</code>，后面在加上<code>\bin</code>，所以这条指令指定的完整路径是<code>C:\Program Files\Java\jdk-15.0.2\bin</code>，而这个目录下放置着java绝大多数的执行程序，<code>%JAVA_HOME%</code>是一种简便写法</strong></p>
+<p>此时，我们便将环境变量设置好了，现在我们来检验一下，在桌面按住windows键（键盘左下角显示微软图标的那个按键）+R，弹出运行窗口，在窗口中输入cmd，打开命令行，如下图</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/cmd.png" alt="打开cmd"></p>
+<p>在打开的命令行内输入java -version</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<p>然后按下回车，结果如下图</p>
+<p><img src="/2021/07/22/JavaSE/Java%E7%AE%80%E4%BB%8B/Java-SE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AJava%E7%AE%80%E4%BB%8B/%E6%A3%80%E9%AA%8Cjava%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F.png" alt="运行命令行"></p>
+<p>若是显示java版本号，则环境变量配置成功；若是显示“java不是内部或外部命令”，则配置失败，请检查并重新配置。<br>到此，我们便可以正式开发Java程序了！</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>入门</tag>
+        <tag>Java SE</tag>
+      </tags>
+  </entry>
+</search>
